@@ -36,6 +36,8 @@ module "vpc" {
  
 
 ## Output Variables
+* **public-route-table** - List of public route tables.
+* **private-route-table** - List of private route tables.
 * **public-subnets** - List of public subnets.
 * **private-subnets** - List of private subnets.
 * **id** - ID of the VPC.
