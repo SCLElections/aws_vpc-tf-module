@@ -1,5 +1,4 @@
 resource "aws_subnet" "public" {
-  provider                = "aws.local"
   count                   = "${length(var.availability-zones)}"
   vpc_id                  = "${aws_vpc.main.id}"
   cidr_block              = "${cidrsubnet(aws_vpc.main.cidr_block, var.newbits, length(var.availability-zones) + count.index)}"
@@ -25,7 +24,6 @@ resource "aws_subnet" "public" {
 }
 
 resource "aws_subnet" "private" {
-  provider          = "aws.local"
   count             = "${length(var.availability-zones)}"
   vpc_id            = "${aws_vpc.main.id}"
   cidr_block        = "${cidrsubnet(aws_vpc.main.cidr_block, var.newbits, count.index)}"

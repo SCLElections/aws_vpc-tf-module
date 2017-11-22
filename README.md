@@ -32,7 +32,6 @@ module "vpc" {
 * **newbits** - **[string]** - (default: 8) - Number used to split vpc cidr.
 * **availability-zones** - **[list]** - (default: ["a","b","c"]) - Availability zones for each of the subnets.
 * **region** - **[string]** - (default: "eu-east-1") - AWS Region to create the vpc.
-* **aws_profile** - **[string]** - (default: "scl-production") - AWS profile to use when creating this resource.
  
 
 ## Output Variables

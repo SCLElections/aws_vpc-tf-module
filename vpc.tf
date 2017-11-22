@@ -1,5 +1,4 @@
 resource "aws_vpc" "main" {
-  provider             = "aws.local"
   cidr_block           = "${cidrsubnet(var.allocated-cidr, var.split, var.production )}"
   enable_dns_support   = true
   enable_dns_hostnames = true
@@ -22,18 +21,15 @@ resource "aws_vpc" "main" {
 }
 
 resource "aws_nat_gateway" "ngw" {
-  provider      = "aws.local"
   subnet_id     = "${aws_subnet.public.*.id[0]}"
   allocation_id = "${aws_eip.nat.id}"
 }
 
 resource "aws_eip" "nat" {
-  provider = "aws.local"
   vpc      = true
 }
 
 resource "aws_internet_gateway" "igw" {
-  provider = "aws.local"
   vpc_id   = "${aws_vpc.main.id}"
 
   lifecycle {
