@@ -10,16 +10,12 @@ resource "aws_subnet" "public" {
   }
 
   tags {
-    Name                   = "sub-${var.tags["environment"]}-${var.tags["Name"]}-${element(var.availability-zones, count.index)}-public"
-    project                = "${var.tags["project"]}"
-    application            = "${var.tags["application"]}"
-    environment            = "${var.tags["environment"]}"
-    cost-center            = "${var.tags["cost-center"]}"
-    creator                = "${var.tags["creator"]}"
-    responsible-department = "${var.tags["responsible-department"]}"
-    type                   = "${var.tags["type"]}"
-    responsible-party      = "${var.tags["responsible-party"]}"
-    Tier                   = "public"
+    Name        = "sub-${var.tags["environment"]}-${var.tags["Name"]}-${element(var.availability-zones, count.index)}-public"
+    project     = "${var.tags["project"]}"
+    environment = "${var.tags["environment"]}"
+    cost-center = "${var.tags["cost-center"]}"
+    creator     = "${var.tags["creator"]}"
+    Tier        = "public"
   }
 }
 
@@ -34,15 +30,11 @@ resource "aws_subnet" "private" {
   }
 
   tags {
-    Name                   = "sub-${var.tags["environment"]}-${var.tags["Name"]}-${element(var.availability-zones, count.index)}-private"
-    project                = "${var.tags["project"]}"
-    application            = "${var.tags["application"]}"
-    environment            = "${var.tags["environment"]}"
-    cost-center            = "${var.tags["cost-center"]}"
-    creator                = "${var.tags["creator"]}"
-    responsible-department = "${var.tags["responsible-department"]}"
-    type                   = "${var.tags["type"]}"
-    responsible-party      = "${var.tags["responsible-party"]}"
-    Tier                   = "private"
+    Name        = "sub-${var.tags["environment"]}-${var.tags["Name"]}-${element(var.availability-zones, count.index)}-private"
+    project     = "${var.tags["project"]}"
+    environment = "${var.tags["environment"]}"
+    cost-center = "${var.tags["cost-center"]}"
+    creator     = "${var.tags["creator"]}"
+    Tier        = "private"
   }
 }

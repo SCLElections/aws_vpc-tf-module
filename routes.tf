@@ -1,16 +1,12 @@
 resource "aws_route_table" "public" {
-  vpc_id   = "${aws_vpc.main.id}"
+  vpc_id = "${aws_vpc.main.id}"
 
   tags {
-    Name                   = "rtb-${var.tags["environment"]}-${var.tags["Name"]}-public"
-    project                = "${var.tags["project"]}"
-    application            = "${var.tags["application"]}"
-    environment            = "${var.tags["environment"]}"
-    cost-center            = "${var.tags["cost-center"]}"
-    creator                = "${var.tags["creator"]}"
-    responsible-department = "${var.tags["responsible-department"]}"
-    type                   = "${var.tags["type"]}"
-    responsible-party      = "${var.tags["responsible-party"]}"
+    Name        = "rtb-${var.tags["environment"]}-${var.tags["Name"]}-public"
+    project     = "${var.tags["project"]}"
+    environment = "${var.tags["environment"]}"
+    cost-center = "${var.tags["cost-center"]}"
+    creator     = "${var.tags["creator"]}"
   }
 }
 
@@ -27,19 +23,15 @@ resource "aws_route_table_association" "public" {
 }
 
 resource "aws_route_table" "private" {
-  count    = "${length(var.availability-zones)}"
-  vpc_id   = "${aws_vpc.main.id}"
+  count  = "${length(var.availability-zones)}"
+  vpc_id = "${aws_vpc.main.id}"
 
   tags {
-    Name                   = "rtb-${var.tags["environment"]}-${var.tags["Name"]}-private"
-    project                = "${var.tags["project"]}"
-    application            = "${var.tags["application"]}"
-    environment            = "${var.tags["environment"]}"
-    cost-center            = "${var.tags["cost-center"]}"
-    creator                = "${var.tags["creator"]}"
-    responsible-department = "${var.tags["responsible-department"]}"
-    type                   = "${var.tags["type"]}"
-    responsible-party      = "${var.tags["responsible-party"]}"
+    Name        = "rtb-${var.tags["environment"]}-${var.tags["Name"]}-private"
+    project     = "${var.tags["project"]}"
+    environment = "${var.tags["environment"]}"
+    cost-center = "${var.tags["cost-center"]}"
+    creator     = "${var.tags["creator"]}"
   }
 }
 

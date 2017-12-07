@@ -8,15 +8,11 @@ resource "aws_vpc" "main" {
   }
 
   tags {
-    Name                   = "vpc-${var.tags["environment"]}-${var.tags["Name"]}"
-    project                = "${var.tags["project"]}"
-    application            = "${var.tags["application"]}"
-    environment            = "${var.tags["environment"]}"
-    cost-center            = "${var.tags["cost-center"]}"
-    creator                = "${var.tags["creator"]}"
-    responsible-department = "${var.tags["responsible-department"]}"
-    type                   = "${var.tags["type"]}"
-    responsible-party      = "${var.tags["responsible-party"]}"
+    Name        = "vpc-${var.tags["environment"]}-${var.tags["Name"]}"
+    project     = "${var.tags["project"]}"
+    environment = "${var.tags["environment"]}"
+    cost-center = "${var.tags["cost-center"]}"
+    creator     = "${var.tags["creator"]}"
   }
 }
 
@@ -26,25 +22,21 @@ resource "aws_nat_gateway" "ngw" {
 }
 
 resource "aws_eip" "nat" {
-  vpc      = true
+  vpc = true
 }
 
 resource "aws_internet_gateway" "igw" {
-  vpc_id   = "${aws_vpc.main.id}"
+  vpc_id = "${aws_vpc.main.id}"
 
   lifecycle {
     create_before_destroy = true
   }
 
   tags {
-    Name                   = "igw-${var.tags["Name"]}-internet-gateway"
-    project                = "${var.tags["project"]}"
-    application            = "${var.tags["application"]}"
-    environment            = "${var.tags["environment"]}"
-    cost-center            = "${var.tags["cost-center"]}"
-    creator                = "${var.tags["creator"]}"
-    responsible-department = "${var.tags["responsible-department"]}"
-    type                   = "${var.tags["type"]}"
-    responsible-party      = "${var.tags["responsible-party"]}"
+    Name        = "igw-${var.tags["Name"]}-internet-gateway"
+    project     = "${var.tags["project"]}"
+    environment = "${var.tags["environment"]}"
+    cost-center = "${var.tags["cost-center"]}"
+    creator     = "${var.tags["creator"]}"
   }
 }
